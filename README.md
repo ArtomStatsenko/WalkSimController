@@ -1,3 +1,5 @@
+[![Ko-Fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?logo=ko-fi&logoColor=white)](https://ko-fi.com/artomstatsenko)
+
 # WalkSimController
 
 Engine-agnostic first-person walking and bodycam camera controller for Godot, Unity, and plain .NET projects.
