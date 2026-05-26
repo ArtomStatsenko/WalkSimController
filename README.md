@@ -71,6 +71,62 @@ The controller does not move engine objects directly. Each frame:
 
 See `samples/Godot/PlayerGodotAdapter.cs` and `samples/Unity/PlayerUnityAdapter.cs` for minimal adapters.
 
+## Player Rig Schematic
+
+Use a small transform hierarchy where engine physics owns the body position, the root body owns yaw, the camera rig owns bodycam rotation, and the camera owns local bob/breathing offset.
+
+```text
+PlayerBody                         engine character body
+|                                  moves with BodyVelocity through engine physics
+|                                  rotates only around Y with RawCameraYaw
+|
++-- CameraRig / HeadPivot           local child of PlayerBody
+    |                               rotates with CameraRotation pitch/yaw-offset/roll
+    |                               do not move this with physics
+    |
+    +-- Camera                      local child of CameraRig
+                                    moves locally with CameraLocalOffset
+```
+
+Frame ownership:
+
+```text
+FrameInput
+  MoveAxis + MouseDelta
+      |
+      v
+WalkSimController.Update(dt, input)
+      |
+      v
+WalkSimState
+  BodyVelocity       -> engine character movement
+  RawCameraYaw       -> PlayerBody yaw
+  CameraRotation     -> CameraRig local rotation
+  CameraLocalOffset  -> Camera local position
+```
+
+After the engine moves the character and resolves collisions, call `SyncBodyPosition` with the real body position. The controller predicts desired motion, but the engine remains the source of truth for collision-corrected body position.
+
+Unity mapping:
+
+```text
+GameObject with CharacterController + PlayerUnityAdapter
+|
++-- CameraRig Transform
+    |
+    +-- Camera
+```
+
+Godot mapping:
+
+```text
+CharacterBody3D with PlayerGodotAdapter
+|
++-- CameraRig Node3D
+    |
+    +-- Camera3D
+```
+
 ## Settings
 
 `WalkSimSettings` groups the tuning surface:
