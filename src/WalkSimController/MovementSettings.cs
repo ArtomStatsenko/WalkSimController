@@ -1,6 +1,7 @@
 using System;
 
-namespace WalkSimController;
+namespace WalkSimController
+{
 
 public sealed class MovementSettings
 {
@@ -17,4 +18,6 @@ public sealed class MovementSettings
         get => _smoothTime;
         set => _smoothTime = MathF.Max(value, 0.001f);
     }
+}
+
 }

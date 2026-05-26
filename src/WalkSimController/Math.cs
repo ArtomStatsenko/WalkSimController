@@ -1,7 +1,8 @@
 using System;
 using System.Numerics;
 
-namespace WalkSimController;
+namespace WalkSimController
+{
 
 internal static class Math
 {
@@ -100,4 +101,6 @@ internal static class Math
         value %= cycle;
         return value < 0f ? value + cycle : value;
     }
+}
+
 }

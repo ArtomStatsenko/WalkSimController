@@ -1,6 +1,7 @@
 using System.Numerics;
 
-namespace WalkSimController;
+namespace WalkSimController
+{
 
 public struct FrameInput
 {
@@ -9,4 +10,6 @@ public struct FrameInput
 
     /// <summary>Mouse delta for the current frame.</summary>
     public Vector2 MouseDelta;
+}
+
 }

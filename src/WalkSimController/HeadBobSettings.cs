@@ -1,6 +1,7 @@
 using System;
 
-namespace WalkSimController;
+namespace WalkSimController
+{
 
 public sealed class HeadBobSettings
 {
@@ -53,4 +54,6 @@ public sealed class HeadBobSettings
         get => _yawDrift;
         set => _yawDrift = MathF.Max(value, 0f);
     }
+}
+
 }

@@ -2,7 +2,8 @@ using System.Numerics;
 using WalkSimController;
 using NUnit.Framework;
 
-namespace WalkSimController.Tests;
+namespace WalkSimController.Tests
+{
 
 [TestFixture]
 public sealed class WalkSimControllerTests
@@ -118,4 +119,6 @@ public sealed class WalkSimControllerTests
         settings.Mouse.LookLagSmoothTime = 0f;
         return settings;
     }
+}
+
 }

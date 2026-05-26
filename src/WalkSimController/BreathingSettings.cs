@@ -1,6 +1,7 @@
 using System;
 
-namespace WalkSimController;
+namespace WalkSimController
+{
 
 public sealed class BreathingSettings
 {
@@ -43,4 +44,6 @@ public sealed class BreathingSettings
         get => _walkBlend;
         set => _walkBlend = Math.Clamp01(value);
     }
+}
+
 }

@@ -1,4 +1,5 @@
-namespace WalkSimController;
+namespace WalkSimController
+{
 
 public sealed class WalkSimSettings
 {
@@ -18,4 +19,6 @@ public sealed class WalkSimSettings
         get => _maxDeltaTime;
         set => _maxDeltaTime = Math.Clamp(value, 1f / 240f, 0.2f);
     }
+}
+
 }

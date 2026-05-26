@@ -101,6 +101,19 @@ dotnet build
 dotnet test
 ```
 
+## Compatibility Policy
+
+The core library targets `netstandard2.1` and intentionally uses C# 9-compatible syntax. This keeps the source usable in Unity and Godot projects that compile copied source files with an older engine-managed C# compiler.
+
+Do not require newer language features such as file-scoped namespaces, primary constructors, required members, collection expressions, or global using directives in `src/WalkSimController`. Engine compiler support can lag behind the installed local .NET SDK, so a local build with `LangVersion=latest` is not enough.
+
+Before raising the language version, verify the lowest supported Unity and Godot versions compile the source directly. The minimum compatibility check is:
+
+```bash
+dotnet build src/WalkSimController/WalkSimController.csproj /p:LangVersion=9.0
+dotnet test WalkSimController.sln
+```
+
 ## License
 
 MIT. See `LICENSE`.

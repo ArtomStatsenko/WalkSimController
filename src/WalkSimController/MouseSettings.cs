@@ -1,6 +1,7 @@
 using System;
 
-namespace WalkSimController;
+namespace WalkSimController
+{
 
 public sealed class MouseSettings
 {
@@ -31,4 +32,6 @@ public sealed class MouseSettings
         get => _pitchClampDown;
         set => _pitchClampDown = Math.Clamp(value, 0f, 90f);
     }
+}
+
 }

@@ -1,4 +1,5 @@
-namespace WalkSimController;
+namespace WalkSimController
+{
 
 public struct CameraAngles
 {
@@ -12,4 +13,6 @@ public struct CameraAngles
     public float Roll;
 
     public override string ToString() => $"Yaw={Yaw:F2}° Pitch={Pitch:F2}° Roll={Roll:F2}°";
+}
+
 }

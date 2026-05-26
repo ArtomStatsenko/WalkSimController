@@ -11,14 +11,14 @@ using System.Numerics;
 
 namespace WalkSimController
 {
-    public sealed class WalkSimController(Vector3 startPosition, WalkSimSettings? settings = null)
+    public sealed class WalkSimController
     {
         private const float StepAngleSeedFactor = 0.28f;
         private const float StepAngularVelocityFactor = 46f;
         private const float SecondaryStepImpulseScale = 0.45f;
         private const float Tau = MathF.PI * 2f;
 
-        public WalkSimSettings Settings { get; } = settings ?? new WalkSimSettings();
+        public WalkSimSettings Settings { get; }
 
         // ── Mouse ────────────────────────────────────────────────────────────
         private float _rawYaw;
@@ -30,7 +30,7 @@ namespace WalkSimController
         private float _lookVelPitch;
 
         // ── Movement ─────────────────────────────────────────────────────────
-        private Vector3 _bodyPos = startPosition;
+        private Vector3 _bodyPos;
         private Vector3 _bodyVel;
         private Vector3 _velSpring;
         private float _speedRatio;
@@ -66,6 +66,12 @@ namespace WalkSimController
         private float _breathRollVel;
 
         // ─────────────────────────────────────────────────────────────────────
+
+        public WalkSimController(Vector3 startPosition, WalkSimSettings? settings = null)
+        {
+            _bodyPos = startPosition;
+            Settings = settings ?? new WalkSimSettings();
+        }
 
         // Sync after collision resolution. Only the position changes; spring state is preserved.
         public void SyncBodyPosition(Vector3 realPosition) => _bodyPos = realPosition;

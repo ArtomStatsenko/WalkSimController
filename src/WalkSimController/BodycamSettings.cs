@@ -1,4 +1,5 @@
-namespace WalkSimController;
+namespace WalkSimController
+{
 
 public sealed class BodycamSettings
 {
@@ -56,4 +57,6 @@ public sealed class BodycamSettings
         get => _maxPitchAdditiveDegrees;
         set => _maxPitchAdditiveDegrees = Math.Clamp(value, 0f, 8f);
     }
+}
+
 }

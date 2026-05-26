@@ -1,6 +1,7 @@
 using System;
 
-namespace WalkSimController;
+namespace WalkSimController
+{
 
 public sealed class TurnSwaySettings
 {
@@ -23,4 +24,6 @@ public sealed class TurnSwaySettings
         get => _smoothTime;
         set => _smoothTime = MathF.Max(value, 0.001f);
     }
+}
+
 }

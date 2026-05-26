@@ -1,6 +1,7 @@
 using System.Numerics;
 
-namespace WalkSimController;
+namespace WalkSimController
+{
 
 /// <summary>
 /// Atomic frame snapshot: read this instead of separate controller properties.
@@ -51,4 +52,6 @@ public readonly struct WalkSimState
         CameraLocalOffset = offset;
         SpeedRatio = speed;
     }
+}
+
 }
