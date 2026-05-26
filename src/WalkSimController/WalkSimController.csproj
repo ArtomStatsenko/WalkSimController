@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>WalkSimController</RootNamespace>
+    <AssemblyName>WalkSimController</AssemblyName>
+    <PackageId>WalkSimController</PackageId>
+    <Title>WalkSimController</Title>
+    <Description>Engine-agnostic first-person walking and bodycam camera controller for Godot, Unity, and .NET.</Description>
+    <Authors>Artem Statsenko</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+</Project>
